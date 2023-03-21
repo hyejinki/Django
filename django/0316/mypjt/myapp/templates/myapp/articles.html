@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block temp %}
+
+    <h1>전체 조회 페이지</h1>
+    {% for article in articles  %}
+    <p>글 번호 : {{article.pk}}</p>
+    <p>제목 : {{article.title}}</p>
+    <p>내용 : {{article.content}}</p>
+    
+    <a href="{% url 'myapp:delete' %}">삭제하기</a>
+    <hr>
+    {% endfor %} 
+
+    {% comment %} {{articles}} {% endcomment %}
+{% endblock temp %}

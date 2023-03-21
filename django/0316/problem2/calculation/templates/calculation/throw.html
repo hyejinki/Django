@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block temp %}
+    <h1>연산할 두 숫자를 입력하세요</h1>
+    <form action="{% url 'calculation:catch' %}" method="GET">
+        <label for="number1">첫번째 숫자</label>
+        <input type="number" id="number1" name="number1">
+        <label for="number2">두번째 숫자</label>
+        <input type="number" id="number2" name="number2">
+        <input type="submit">
+
+    </form>
+{% endblock temp %}
+

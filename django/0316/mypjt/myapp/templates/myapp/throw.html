@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block temp %}
+    <h1>throw</h1>
+
+    <form action="{% url 'myapp:catch' %}" method="GET">
+        <label for="message">Throw</label>
+        <input type="text" id="message" name="message">
+        <input type="submit">
+
+    </form>
+{% endblock temp %}

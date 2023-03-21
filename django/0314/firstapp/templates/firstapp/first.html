@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>first app</h1>
+
+    <!-- 키 값 -->
+    <!-- 장고에서만 씀 -> DTL -->
+    <p>이름 : {{ name }}</p>
+    <p>직업 : {{ job }}</p>
+    <p>메뉴리스트 : {{ menus }}</p>
+    {% for menu in menus %}
+        <p>상세 메뉴 : {{ menu }}</p>
+    {% endfor %}
+    <p>메뉴 리스트 길이 : {{menus | length }}</p>
+
+</body>
+</html>

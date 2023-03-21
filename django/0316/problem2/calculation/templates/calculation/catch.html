@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block temp %}
+    <h1>계산결과</h1>
+    <p> {{ number1 }} + {{ number2 }} = {{ number1|add:number2 }} </p>
+    <p> {{ number1 }} - {{ number2 }} = {{ num1 }} </p>
+    <p> {{ number1 }} * {{ number2 }} = {{ num2 }} </p>
+    {% if number2 == 0 %}
+        <P>계산할 수 없습니다.</P>
+    {% else %}
+        <p> {{ number1 }} / {{ number2 }} = {{ num3 }} </p>
+    {% endif %}
+    
+    <a href="{% url 'calculation:throw' %}">다시 던져</a>
+    
+{% endblock temp %}

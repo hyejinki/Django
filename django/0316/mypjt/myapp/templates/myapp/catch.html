@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block temp %}
+    <h1>catch</h1>
+    <h2>보낸 데이터 : {{ message }}</h2>
+
+    <a href="{% url 'myapp:throw' %}">다시 데이터 보내</a>
+{% endblock temp %}

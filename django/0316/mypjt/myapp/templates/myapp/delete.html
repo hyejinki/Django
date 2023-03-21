@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block temp %}
+<h1>DB 삭제</h1>
+
+<form action="{% url 'myapp:remv' %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="">id : </label>
+        <input type="number" name="id">
+    </div> 
+    
+    <input type="submit" value="삭제하기">
+</form>
+{% endblock temp %}
