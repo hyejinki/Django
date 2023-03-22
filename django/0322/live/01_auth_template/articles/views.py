@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ArticleForm
+#3 
+# from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -14,10 +17,25 @@ def detail(request, pk):
     context = {'article': article}
     return render(request, 'articles/detail.html', context)
 
+#3. 데코레이터 사용
+# @login_required
 
 def create(request):
+    # 1
+    if not request.COOKIES.get('sessionid'):
+        return redirect('accounts:login')
+
+    # 2
+    # if not request.user.is_authenticated:
+    #     return redirect('accounts:login')
+
+
+
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES)
+
+        print(form.data.get('title'))
+
         if form.is_valid():
             article = form.save()
             return redirect('articles:detail', article.pk)

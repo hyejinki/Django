@@ -4,8 +4,8 @@ from django.db import models
 class Article(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
-    author = models.TextField(default="강사")
-    image = models.ImageField(blank=True)
+    # author = models.TextField(default="강사")
+    # image = models.ImageField(blank=True)
 
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)

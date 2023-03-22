@@ -7,6 +7,10 @@ from django.contrib.auth import logout as auth_logout
 def login(request):
     if request.method == 'POST':
         # 로그인 처리 해줌
+        # 1. form 으로 데이터를 받아줌
+        # 2. 유효성 검사
+        # 3. 로그인
+        # 4. index 화면으로 리다이렉션
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
