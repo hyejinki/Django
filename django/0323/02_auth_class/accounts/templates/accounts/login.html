@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Login</h1>
+  
+  {% comment %} action 비워둠 -> 현재 URL 요청 {% endcomment %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="로그인">
+    {% comment %} <input type="hidden" name="next" value="{{ next }}"> {% endcomment %}
+  </form>
+{% endblock content %}
