@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>INDEX</h1>
+    <a href="{% url 'myapps:create' %}">[생성하기]</a>
+    {% if myapps %}
+        {% for myapp in myapps %}
+        <a href="{% url 'myapps:detail' myapp.pk %}">
+        <p>{{myapp.title}}</p>
+        </a>
+        {% endfor %}
+    {% else %}
+        <p>게시글이 없습니다.</p>
+    {% endif %}
+    
+    
+    
+{% endblock content %}
+

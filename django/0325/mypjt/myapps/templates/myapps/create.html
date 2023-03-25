@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>CREATE</h1>
+    <hr>
+    <form action="{% url 'myapps:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="작성하기"/>
+    </form>
+    
+    <a href="{% url 'myapps:index' %}">[Back]</a>
+{% endblock content %}
+

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>UPDATE</h1>
+    <hr>
+    <form action="{% url 'myapps:update' myapp.pk %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="수정하기"/>
+    </form>
+    
+    <a href="{% url 'myapps:index' %}">[Back]</a>
+{% endblock content %}
+
