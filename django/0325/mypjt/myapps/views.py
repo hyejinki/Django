@@ -8,7 +8,10 @@ def index(request):
     context = {
         'myapps':myapps
     }
-    return render(request, 'myapps/index.html', context)
+    response = render(request, 'myapps/index.html', context)
+    response.set_cookie('message', 'wow')
+    return response
+    
 
 
 def detail(request, pk):
@@ -20,6 +23,9 @@ def detail(request, pk):
 
 
 def create(request):
+    if not request.user.is_authenticated:
+        return redirect('accounts:login')
+
     if request.method == 'POST':
         form = MyappForm(request.POST, request.FILES)
         if form.is_valid():
@@ -34,7 +40,7 @@ def create(request):
 def delete(request, pk):
     myapp = Myapp.objects.get(pk=pk)
     myapp.delete()
-    return redirect('myapp:index')
+    return redirect('myapps:index')
 
 
 def update(request, pk):
@@ -43,9 +49,11 @@ def update(request, pk):
         form = MyappForm(request.POST, request.FILES, instance=myapp)
         if form.is_valid():
             form.save()
+            return redirect('myapps:detail', pk=myapp.pk)
     else:
         form = MyappForm(instance=myapp)
+
     context = {
         'form':form, 'myapp' : myapp
     }
-    return render*(request, 'myapps/update.html', context)
+    return render(request, 'myapps/update.html', context)

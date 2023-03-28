@@ -13,7 +13,7 @@
     <form action="{% url 'myapps:delete' myapp.pk %}">
         <input type="submit" value="삭제하기" />
     </form>
-    <a href="{% url 'myapps:update' %}">[update]</a>
+    <a href="{% url 'myapps:update' myapp.pk %}">[update]</a>
     <a href="{% url 'myapps:index' %}">[Back]</a>
 {% endblock content %}
 

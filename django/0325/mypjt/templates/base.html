@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="{% url 'accounts:login' %}">로그인</a>
+    <a href=" {% url 'accounts:logout' %}">로그아웃</a>
+
+    <h3>안녕하세요 {{user}}님 !</h3>
     {% block content %}
     
-
-
     {% endblock content %}
 
 
