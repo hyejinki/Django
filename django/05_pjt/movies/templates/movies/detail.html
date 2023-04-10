@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>DETAIL</h1>
+    <hr>
+    <p>{{movie.title}}</p>
+    <p>{{movie.description}}</p>
+
+    <form action="{% url 'movies:delete' movie.pk %}">
+        <input type="submit" value="delete">
+    </form>
+    <a href="{% url 'movies:update' movie.pk %}">[update]</a>
+    <br>
+    <a href="{% url 'movies:index' %}">[back]</a>
+{% endblock content %}
+
